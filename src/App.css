@@ -1,0 +1,69 @@
+.btn-accent {
+  background-color: #5bb0d4;
+  color: white;
+  border-radius: 5px;
+  border: none;
+}
+
+.btn-accent:hover {
+  background-color: #42a0c9;
+}
+
+.btn-accent:active {
+  background-color: #2f89b0 !important;
+  box-shadow: none;
+}
+
+
+
+.form-control, .form-range {
+  border-radius: 5px;
+}
+
+.form-range {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #5bb0d4;
+  height: 8px;
+  border-radius: 5px;
+}
+
+.form-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #5bb0d4;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+.form-range::-moz-range-thumb {
+  background-color: #5bb0d4;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+}
+
+
+
+.form-check-input {
+  border-radius: 3px;
+  border-color: #5bb0d4;
+}
+
+.form-check-input:checked {
+  background-color: #5bb0d4;
+  border-color: #5bb0d4;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.2rem rgba(91, 176, 212, 0.25); /* Цвет тени при фокусе */
+}
+
+
+
+.input-group {
+  border-radius: 5px;
+}
