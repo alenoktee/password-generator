@@ -53,10 +53,52 @@ function App() {
     setPassword(newPassword);
   };
 
-  const handleCopy = () => {
+  const copyPassword = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+
+  return (
+    <Container className="py-5">
+      <Row className="mb-4 text-center">
+        <h2>Надежность пароля: {password.length > 15 ? 'Очень надежный' : password.length > 10 ? 'Надежный' : password.length > 5 ? 'Средний' : 'Ненадежный'}</h2>
+      </Row>
+  
+      <Row className="mb-4 text-center">
+        <Col md={{ span: 6, offset: 3 }}>
+          <InputGroup className="mb-3">
+            <Form.Control type="text" readOnly value={password} />
+            <Button variant="turquoise" onClick={() => generatePassword(length, options)}>Генерировать</Button>
+            <CopyToClipboard text={password} onCopy={copyPassword}>
+              <Button variant="turquoise">{copied ? 'Скопировано!' : 'Копировать'}</Button>
+            </CopyToClipboard>
+          </InputGroup>
+        </Col>
+      </Row>
+  
+      <Row className="mb-4">
+        <Col md={{ span: 6, offset: 3 }}>
+          <div className="d-flex align-items-center">
+            <Form.Label className="me-3">Длина пароля</Form.Label>
+            <Form.Range min="4" max="20" value={length} onChange={changePasswordLength} />
+            <Form.Control type="number" value={length} className="ms-2" style={{ width: '60px' }} onChange={changePasswordLength} />
+          </div>
+        </Col>
+      </Row>
+  
+      <Row className="mb-4">
+        <Col md={{ span: 6, offset: 3 }}>
+          <div className="d-flex justify-content-between">
+            <Form.Check type="checkbox" label="Верхний регистр" checked={options.uppercase} onChange={() => changeOptions('uppercase')} />
+            <Form.Check type="checkbox" label="Нижний регистр" checked={options.lowercase} onChange={() => changeOptions('lowercase')} />
+            <Form.Check type="checkbox" label="Цифры" checked={options.numbers} onChange={() => changeOptions('numbers')} />
+            <Form.Check type="checkbox" label="Символы" checked={options.symbols} onChange={() => changeOptions('symbols')} />
+          </div>
+        </Col>
+      </Row>
+    </Container>
+  );
+  
 };
 
 export default App;
